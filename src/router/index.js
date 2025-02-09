@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import TestView from "../views/TestView.vue";
 import LoginView from "../views/authentication/LoginView.vue";
+import DashboardView from "../views/dashboard/indexView.vue";
 const routes = [
   {
     path: "/",
@@ -30,11 +31,27 @@ const routes = [
     name: "login",
     component: LoginView,
   },
+  {
+    path: "/dashbord",
+    name: "dashboard",
+    component: DashboardView,
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
-
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      next({ name: "login" });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
 export default router;
