@@ -35,11 +35,15 @@
             <form role="form" class="text-start">
               <div class="input-group input-group-outline my-3">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control" />
+                <input type="email" class="form-control" v-model="email" />
               </div>
               <div class="input-group input-group-outline mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" class="form-control" />
+                <input
+                  type="password"
+                  class="form-control"
+                  v-model="password"
+                />
               </div>
               <div
                 class="form-check form-switch d-flex align-items-center mb-3"
@@ -58,6 +62,7 @@
                 <button
                   type="button"
                   class="btn bg-gradient-dark w-100 my-4 mb-2"
+                  @click="handleLogin()"
                 >
                   Sign in
                 </button>
@@ -87,10 +92,34 @@ export default {
     };
   },
   methods: {
-    handleLogin() {
+    async handleLogin() {
       // Handle login logic here
       console.log("Email:", this.email);
       console.log("Password:", this.password);
+      const axios = require("axios");
+      const config_ = require("../../../config.js");
+
+      axios
+        .get(config_.backendurl + "api/v1/signin", {
+          params: {
+            email: this.email,
+            password: this.password,
+          },
+        })
+        .then((response) => {
+          console.log(response.data);
+          const login_status = response.data["loging_status"];
+          if (login_status == "_DONE_") {
+            localStorage.setItem("token", response.data["token"]);
+            alert("done");
+          } else {
+            alert("failed");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("failed");
+        });
     },
   },
   components: {
