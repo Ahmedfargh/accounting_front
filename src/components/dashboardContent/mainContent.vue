@@ -2,27 +2,11 @@
   <div class="container-fluid py-2">
     <div class="row">
       <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
-        <div class="card">
-          <div class="card-header d-flex justify-content-between p-3 pt-2">
-            <div
-              class="icon icon-md icon-shape bg-gradient-dark shadow-dark text-center border-radius-lg"
-            >
-              <i class="material-symbols-rounded opacity-10">weekend</i>
-            </div>
-            <div class="text-start pt-1">
-              <p class="text-sm mb-0 text-capitalize">أموال اليوم</p>
-              <h4 class="mb-0">$53k</h4>
-            </div>
-          </div>
-          <hr class="dark horizontal my-0" />
-          <div class="card-footer p-3">
-            <p class="mb-0 text-start">
-              <span class="text-success text-sm font-weight-bolder ms-1"
-                >+55% </span
-              >من الأسبوع الماضي
-            </p>
-          </div>
-        </div>
+        <statiticalCard
+          url_link="api/v1/count"
+          total_header="عدد الموظفين"
+          explaination="اخر قرائه"
+        />
       </div>
       <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
         <div class="card">
@@ -856,7 +840,12 @@
 </template>
 
 <script>
-export default {};
+import statiticalCard from "../../components/dashboardContent/StatiticCard.vue";
+export default {
+  components: {
+    statiticalCard,
+  },
+};
 </script>
 
 <style></style>
