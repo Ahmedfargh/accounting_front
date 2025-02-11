@@ -3,61 +3,27 @@
     <div class="row">
       <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
         <statiticalCard
-          url_link="api/v1/count"
+          :url_link="hrbackendurl + 'api/v1/count/employee'"
           total_header="عدد الموظفين"
           explaination="اخر قرائه"
+          icons="person"
         />
       </div>
       <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
-        <div class="card">
-          <div class="card-header d-flex justify-content-between p-3 pt-2">
-            <div
-              class="icon icon-md icon-shape bg-gradient-dark shadow-dark text-center border-radius-lg"
-            >
-              <i class="material-symbols-rounded opacity-10">leaderboard</i>
-            </div>
-            <div class="text-start pt-1">
-              <p class="text-sm mb-0 text-capitalize">مستخدمو اليوم</p>
-              <h4 class="mb-0">2,300</h4>
-            </div>
-          </div>
-          <hr class="dark horizontal my-0" />
-          <div class="card-footer p-3">
-            <p class="mb-0 text-start">
-              <span class="text-success text-sm font-weight-bolder ms-1"
-                >+33% </span
-              >من الأسبوع الماضي
-            </p>
-          </div>
-        </div>
+        <statiticalCard
+          :url_link="hrbackendurl + 'api/v1/sum/salary/employee'"
+          total_header=" المثالى)اجمالى الرواتب)"
+          explaination=" "
+          icons="Payments"
+        />
       </div>
       <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
-        <div class="card">
-          <div class="card-header d-flex justify-content-between p-3 pt-2">
-            <div
-              class="icon icon-md icon-shape bg-gradient-dark shadow-dark text-center border-radius-lg"
-            >
-              <i class="material-symbols-rounded opacity-10">store</i>
-            </div>
-            <div class="text-start pt-1">
-              <p class="text-sm mb-0 text-capitalize">عملاء جدد</p>
-              <h4 class="mb-0">
-                <span class="text-danger text-sm font-weight-bolder ms-1"
-                  >-2%</span
-                >
-                +3,462
-              </h4>
-            </div>
-          </div>
-          <hr class="dark horizontal my-0" />
-          <div class="card-footer p-3">
-            <p class="mb-0 text-start">
-              <span class="text-success text-sm font-weight-bolder ms-1"
-                >+5% </span
-              >من الشهر الماضي
-            </p>
-          </div>
-        </div>
+        <statiticalCard
+          :url_link="hrbackendurl + 'api/v1/Employee/calculate/1'"
+          total_header=" الصافى)اجمالى الرواتب)"
+          explaination=" "
+          icons="Payments"
+        />
       </div>
       <div class="col-lg-3 col-sm-6">
         <div class="card">
@@ -841,7 +807,13 @@
 
 <script>
 import statiticalCard from "../../components/dashboardContent/StatiticCard.vue";
+import config from "../../../config.js";
 export default {
+  data() {
+    return {
+      hrbackendurl: config.HRBACKENDURL,
+    };
+  },
   components: {
     statiticalCard,
   },

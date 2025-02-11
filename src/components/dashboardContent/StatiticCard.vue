@@ -1,14 +1,16 @@
 <template>
   <div class="card">
     <div class="card-header d-flex justify-content-between p-3 pt-2">
-      <div
-        class="icon icon-md icon-shape bg-gradient-dark shadow-dark text-center border-radius-lg"
-      >
-        <i class="material-symbols-rounded opacity-10"></i>
+      <div class="bg-gradient-dark shadow-dark text-center border-radius-lg">
+        <div
+          class="icon icon-md icon-shape bg-gradient-dark shadow-dark text-center border-radius-lg"
+        >
+          <i class="material-symbols-rounded opacity-10">{{ this.icons }}</i>
+        </div>
       </div>
-      <div class="text-start pt-1">
+      <div class="text-center pt-1">
         <h4 class="mb-0">
-          {{ mainHeader }}
+          {{ mainHeader }} <i class="fa-solid fa-user" style="color: black"></i>
         </h4>
         <p class="text-sm mb-0 text-capitalize">{{ this.data.Value }}</p>
       </div>
@@ -16,7 +18,7 @@
     <hr class="dark horizontal my-0" />
     <div class="card-footer p-3">
       <p class="mb-0 text-start">
-        <span class="text-success text-sm font-weight-bolder ms-1">{{
+        <span class="text-primary text-sm font-weight-bolder ms-1">{{
           this.data.LastRead
         }}</span
         >{{ explaination_text }}
@@ -57,14 +59,19 @@ export default {
       type: String,
       required: true,
     },
+    icons: {
+      type: String,
+      required: true,
+    },
   },
   methods: {
     Update: function () {
+      console.log(this.url_link);
       const axios = require("axios");
       axios
-        .get(this.url + this.url_link, {
-          body: {
-            jwt: localStorage.getItem("token"),
+        .get(this.url_link, {
+          params: {
+            token: config.HRBACKENDTOKEN,
           },
         })
         .then((Res) => {

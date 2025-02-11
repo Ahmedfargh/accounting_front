@@ -98,7 +98,10 @@ export default {
       console.log("Password:", this.password);
       const axios = require("axios");
       const config_ = require("../../../config.js");
-
+      console.log({
+        email: this.email,
+        password: this.password,
+      });
       axios
         .get(config_.backendurl + "api/v1/signin", {
           params: {
