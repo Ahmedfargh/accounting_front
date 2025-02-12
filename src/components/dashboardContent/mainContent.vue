@@ -7,6 +7,7 @@
           total_header="عدد الموظفين"
           explaination="اخر قرائه"
           icons="person"
+          :token="hrtoken"
         />
       </div>
       <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
@@ -15,6 +16,7 @@
           total_header=" المثالى)اجمالى الرواتب)"
           explaination=" "
           icons="Payments"
+          :token="hrtoken"
         />
       </div>
       <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
@@ -23,30 +25,17 @@
           total_header=" الصافى)اجمالى الرواتب)"
           explaination=" "
           icons="Payments"
+          token="hrtoken"
         />
       </div>
       <div class="col-lg-3 col-sm-6">
-        <div class="card">
-          <div class="card-header d-flex justify-content-between p-3 pt-2">
-            <div
-              class="icon icon-md icon-shape bg-gradient-dark shadow-dark text-center border-radius-lg"
-            >
-              <i class="material-symbols-rounded opacity-10">weekend</i>
-            </div>
-            <div class="text-start pt-1">
-              <p class="text-sm mb-0 text-capitalize">مبيعات</p>
-              <h4 class="mb-0">$103,430</h4>
-            </div>
-          </div>
-          <hr class="dark horizontal my-0" />
-          <div class="card-footer p-3">
-            <p class="mb-0 text-start">
-              <span class="text-success text-sm font-weight-bolder ms-1"
-                >+7% </span
-              >مقارنة بيوم أمس
-            </p>
-          </div>
-        </div>
+        <statiticalCard
+          :url_link="backendurl + 'api/v1/count/user'"
+          total_header=" المحاسبيين"
+          explaination=" "
+          icons="Group"
+          token=""
+        />
       </div>
     </div>
     <div class="row mt-4">
@@ -812,6 +801,8 @@ export default {
   data() {
     return {
       hrbackendurl: config.HRBACKENDURL,
+      hrtoken: config.HRBACKENDTOKEN,
+      backendurl: config.backendurl,
     };
   },
   components: {

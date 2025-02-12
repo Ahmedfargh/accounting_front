@@ -114,6 +114,7 @@ export default {
           const login_status = response.data["loging_status"];
           if (login_status == "_DONE_") {
             localStorage.setItem("token", response.data["token"]);
+            localStorage.setItem("account", response.data["user"]);
             this.$router.push({ name: "dashboard" });
           } else {
             alert("failed");

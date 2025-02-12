@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import TestView from "../views/TestView.vue";
 import LoginView from "../views/authentication/LoginView.vue";
 import DashboardView from "../views/dashboard/indexView.vue";
+import BillDashboard from "../views/dashboard/BillView.vue";
 const routes = [
   {
     path: "/",
@@ -36,6 +37,11 @@ const routes = [
     name: "dashboard",
     component: DashboardView,
   },
+  {
+    path: "/bills",
+    name: "billContent",
+    component: BillDashboard,
+  },
 ];
 
 const router = createRouter({
@@ -43,13 +49,9 @@ const router = createRouter({
   routes,
 });
 router.beforeEach((to, from, next) => {
-  if (to.matched.some((record) => record.meta.requiresAuth)) {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      next({ name: "login" });
-    } else {
-      next();
-    }
+  const token = localStorage.getItem("token");
+  if (!token) {
+    next({ name: "login" });
   } else {
     next();
   }

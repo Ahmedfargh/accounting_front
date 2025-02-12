@@ -21,7 +21,7 @@
           height="26"
           alt="main_logo"
         />
-        <span class="me-1 text-sm text-dark">Creative Tim</span>
+        <span class="me-1 text-sm text-dark">نظام المحاسبة</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0 mb-2" />
@@ -43,7 +43,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="../pages/billing.html">
+          <a class="nav-link text-dark" href="/bills">
             <i class="material-symbols-rounded opacity-10">receipt_long</i>
             <span class="nav-link-text me-1">الفواتير</span>
           </a>

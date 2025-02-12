@@ -63,6 +63,10 @@ export default {
       type: String,
       required: true,
     },
+    token: {
+      type: String,
+      required: true,
+    },
   },
   methods: {
     Update: function () {
@@ -77,6 +81,9 @@ export default {
         .then((Res) => {
           console.log(Res);
           this.data = Res.data;
+        })
+        .catch((error) => {
+          console.log(error);
         });
     },
   },
