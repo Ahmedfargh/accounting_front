@@ -4,6 +4,7 @@ import TestView from "../views/TestView.vue";
 import LoginView from "../views/authentication/LoginView.vue";
 import DashboardView from "../views/dashboard/indexView.vue";
 import BillDashboard from "../views/dashboard/BillView.vue";
+import ProductsView from "../views/dashboard/AddProductView.vue";
 const routes = [
   {
     path: "/",
@@ -41,6 +42,11 @@ const routes = [
     path: "/bills",
     name: "billContent",
     component: BillDashboard,
+  },
+  {
+    path: "/products",
+    name: "products",
+    component: ProductsView,
   },
 ];
 

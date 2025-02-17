@@ -14,13 +14,7 @@
         href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
         target="_blank"
       >
-        <img
-          src="../assets/img/logo-ct-dark.png"
-          class="navbar-brand-img"
-          width="26"
-          height="26"
-          alt="main_logo"
-        />
+        <i class="material-symbols-rounded opacity-10">Finance</i>
         <span class="me-1 text-sm text-dark">نظام المحاسبة</span>
       </a>
     </div>
@@ -31,17 +25,28 @@
     >
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-dark" href="../pages/dashboard.html">
+          <a class="nav-link text-dark" href="/dashboard">
             <i class="material-symbols-rounded opacity-10">dashboard</i>
             <span class="nav-link-text me-1">لوحة القيادة</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="../pages/tables.html">
-            <i class="material-symbols-rounded opacity-10">table_view</i>
-            <span class="nav-link-text me-1">الجداول</span>
+          <a class="nav-link text-dark" href="/products">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#5f6368"
+            >
+              <path
+                d="M520-400h80v-120h120v-80H600v-120h-80v120H400v80h120v120ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"
+              />
+            </svg>
+            <span class="nav-link-text me-1">منتجات</span>
           </a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link text-dark" href="/bills">
             <i class="material-symbols-rounded opacity-10">receipt_long</i>
@@ -65,6 +70,7 @@
             <span class="nav-link-text me-1">RTL</span>
           </a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link text-dark" href="../pages/notifications.html">
             <i class="material-symbols-rounded opacity-10">notifications</i>
@@ -90,22 +96,6 @@
           </a>
         </li>
       </ul>
-    </div>
-    <div class="sidenav-footer position-absolute w-100 bottom-0">
-      <div class="mx-3">
-        <a
-          class="btn btn-outline-dark mt-4 w-100"
-          href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard?ref=sidebarfree"
-          type="button"
-          >Documentation</a
-        >
-        <a
-          class="btn bg-gradient-dark w-100"
-          href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree"
-          type="button"
-          >Upgrade to pro</a
-        >
-      </div>
     </div>
   </aside>
 </template>
